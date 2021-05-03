@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>ProjectCLI - Documentation</title>
+
+    <!-- Styles -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/dist/app.css">
+
+    <script src="//code.jquery.com/jquery-2.1.3.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+    <script src="/dist/app.js"></script>
+</head>
+<body>
+
+<div class="absolute right-0 top-0 z-50">
+    <a href="https://github.com/you">
+        <img loading="lazy" width="149" height="149"
+             src="https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149"
+             class="attachment-full size-full" alt="Fork me on GitHub"
+             data-recalc-dims="1"></a>
+</div>
+
+<nav class="dark:bg-gray-800">
+    <div class="max-w-screen-xl mx-auto">
+        <div class="relative flex items-center justify-between h-16 sm:px-8 xl:px-0">
+            <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                <div class="flex-shrink-0 flex items-center text-blue-400">
+                    ProjectCLI
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main class="flex-auto flex">
+    <div class="relative flex w-full">
+        <div class="hidden lg:block absolute top-0 bottom-0 right-0 left-1/2 bg-white"></div>
+        <div class="relative flex w-full max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="w-full flex-none lg:grid lg:grid-cols-3 lg:gap-8">
+                <div class="bg-gray-50 lg:bg-transparent -mx-4 sm:-mx-6 lg:mx-0 py-12 sm:py-16 px-4 sm:px-6 lg:pl-0 lg:pr-8">
+                    <div class="text-sm max-w-[37.5rem] mx-auto lg:max-w-none lg:mx-0 relative lg:sticky lg:top-10">
+                        <ul class="space-y-8 pl-6">
+                            <li class="space-y-3">
+                                <a href="#prologue"
+                                   class="block font-medium text-teal-600">Prologue</a>
+
+                                <ul class="space-y-3">
+                                    <li class="ml-4">
+                                        <a href="#versioning-scheme" class="block">
+                                            Versioning Scheme</a>
+                                    </li>
+                                    <li class="ml-4">
+                                        <a href="#contribution-guide"
+                                           class="block">Contribution Guide</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="space-y-3">
+                                <a href="#getting-started"
+                                   class="block font-medium text-gray-900">
+                                    Getting Started</a>
+
+                                <ul class="space-y-3">
+                                    <li class="ml-4">
+                                        <a href="#prerequisites"
+                                           class="block">Prerequisites</a>
+                                    </li>
+                                    <li class="ml-4">
+                                        <a href="#installation"
+                                           class="block">Installation</a>
+                                    </li>
+                                    <li class="ml-4">
+                                        <a href="#update"
+                                           class="block">Update</a>
+                                    </li>
+                                    <li class="ml-4">
+                                        <a href="#uninstall"
+                                           class="block">Uninstall</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="space-y-3">
+                                <a href="#usage"
+                                   class="block font-medium text-gray-900">Usage</a>
+
+                                <ul class="space-y-3">
+                                    <li class="ml-4">
+                                        <a href="#directory-structure"
+                                           class="block">Directory Structure</a>
+                                    </li>
+                                    <li class="ml-4">
+                                        <a href="#project-configuration"
+                                           class="block">Project Configuration</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="space-y-3">
+                                <a href="#commands"
+                                   class="block font-medium text-gray-900">Commands</a>
+
+                                <ul class="space-y-3">
+                                    <li class="ml-4">
+                                        <a href="#writing-commands"
+                                           class="block">Writing commands</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="space-y-3">
+                                <a href="#plugins"
+                                   class="block font-medium text-gray-900">Plugins</a>
+
+                                <ul class="space-y-3">
+                                    <li class="ml-4">
+                                        <a href="#find-plugins"
+                                           class="block">Find plugins</a>
+                                    </li>
+                                    <li class="ml-4">
+                                        <a href="#install-plugins"
+                                           class="block">Install plugins</a>
+                                    </li>
+                                    <li class="ml-4">
+                                        <a href="#update-plugins"
+                                           class="block">Update plugins</a>
+                                    </li>
+                                    <li class="ml-4">
+                                        <a href="#uninstall-plugins"
+                                           class="block">Uninstall plugins</a>
+                                    </li>
+                                    <li class="ml-4">
+                                        <a href="#require-plugins"
+                                           class="block">Require plugins</a>
+                                    </li>
+                                    <li class="ml-4">
+                                        <a href="#writing-plugins"
+                                           class="block">Writing plugins</a>
+                                    </li>
+                                    <li class="ml-4">
+                                        <a href="#publishing-plugins"
+                                           class="block">Publishing plugins</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="relative col-span-2 lg:-ml-8 bg-white lg:shadow-md">
+                    <div class="hidden lg:block absolute top-0 bottom-0 -right-4 w-8 bg-white"></div>
+
+                    <div class="relative py-16 lg:px-16">
+                        <div class="prose prose-sm max-w-[37.5rem] mx-auto">
+                            <h2 class="mb-6 text-3xl" id="prologue">Prologue</h2>
+                            <h3 class="text-xl mb-1 mt-8" id="versioning-scheme">Versioning Scheme</h3>
+                            <p><strong>ProjectCLI</strong> follows
+                                <a href="https://semver.org/" target="_blank" class="text-blue-500">Semantic
+                                    Versioning</a>.</p>
+
+                            <h3 class="text-xl mb-1 mt-8 mt-4" id="contribution-guide">Contribution Guide</h3>
+                            <p>TBD</p>
+
+                            <hr class="my-10" id="getting-started">
+
+                            <h2 class="mb-6 text-3xl">Getting Started</h2>
+                            <h3 class="text-xl mb-1 mt-8" id="prerequisites">Prerequisites</h3>
+                            <ul class="list-inside">
+                                <li>PHP CLI 7.2 or newer (incl. extensions: zlib, json, intl, xml, curl)</li>
+                            </ul>
+
+                            <h4 class="mb-2 mt-4 text-lg">Homebrew</h4>
+                            <pre class="bash">brew install php@7.2</pre>
+
+                            <h4 class="mb-2 mt-4 text-lg">Ubuntu</h4>
+                            <p>Make sure the available version meets the requirements:</p>
+                            <pre class="bash">apt show php</pre>
+                            <p>If not, add the following repository:</p>
+                            <pre class="bash">add-apt-repository -y ppa:ondrej/php \
+    && apt-get update</pre>
+                            <p>Install the PHP CLI and extensions:</p>
+                            <pre class="bash">apt install php-cli php-xml php-curl php-zip php-intl php-json</pre>
+
+                            <h3 class="text-xl mb-1 mt-8" id="installation">Installation</h3>
+                            <p>After you've installed all dependencies, get the latest ProjectCLI release here and move
+                                it to /usr/local/bin/project or /usr/bin/project, depending on your system. The project
+                                command will be available after you restart your terminal session.</p>
+
+                            <h3 class="text-xl mb-1 mt-8" id="update">Update</h3>
+                            <p>Manually update ProjectCLI:</p>
+                            <pre class="bash">project self-update</pre>
+
+                            <h3 class="text-xl mb-1 mt-8" id="uninstall">Uninstall</h3>
+                            <pre class="bash">rm -rf $HOME/.project $(which project)</pre>
+
+                            <hr class="my-10" id="usage">
+
+                            <h2 class="mb-6 text-3xl">Usage</h2>
+                            <h3 class="text-xl mb-1 mt-8" id="directory-structure">Directory Structure</h3>
+                            <p class="alert alert-warning">It's mandatory, that the project has the according directory
+                                structure and files in order for ProjectCLI to work properly.</p>
+
+                            <pre class="plaintext">root
+  ├── commands
+  │   - Contains project specific commands (see 'project make:command')
+  ├── conf
+  │   - Add configuration files for project components (like nginx, PHP, crontab, supervisor, etc)
+  ├── scripts
+  │   - Can contain scripts for deployment, HTTP requests or other complex tasks
+  ├── src
+  │   - Contains the application source
+  └── temp
+      - Temp directory for docker-compose service mounts
+</pre>
+
+                            <h3 class="text-xl mb-1 mt-8" id="project-configuration">
+                                Project Configuration
+                            </h3>
+
+                            <p>The following configuration properties are available:</p>
+
+                            <pre class="code yaml"># project name including the vendor name (mandatory)
+name: vendor/name-of-the-project
+# the actual project version (mandatory)
+version: v1.0.0
+# specify multiple plugins required for this project
+require:
+- projectcli/laravel</pre>
+
+                            <hr class="my-10" id="commands">
+
+                            <h2 class="mb-6 text-3xl">Commands</h2>
+
+                            <p>ProjectCLI gives you the ability to write project specific commands, which can be
+                                used to translate complex tasks into a single command. For example, to completely
+                                setup a project, there need to be run many specific commands. So, instead of letting
+                                contributors execute command after command after command, there's just one command
+                                to rule them all.</p>
+
+                            <p class="alert alert-info">If you clone a project via the <code>clone</code> command
+                                and the project provides a <code>setup</code> or <code>install</code> command,
+                                <strong>ProjectCLI</strong> will automatically ask, if those commands should be
+                                executed. So it's best practice to use the <code>clone</code> command to start
+                                setting up the project.</p>
+
+                            <h3 class="text-xl mb-1 mt-8" id="writing-commands">Writing Commands</h3>
+
+                            <p>First, let's create the command via:</p>
+                            <pre class="code shell">project make:command SetupCommand</pre>
+                            <p>You'll then find the appropriate command in <code>./commands/SetupCommand.php</code>
+                            </p>
+                            <p class="alert alert-info">If you are in a PHP project with Composer support, you can
+                                require the <a
+                                        href="https://github.com/chriha/project-cli-dev" target="_blank">ProjectCLI dev
+                                    package</a>, which provides all necessary interfaces for your IDE:<br>
+                            </p>
+                            <pre class="code shell">project composer require --dev chriha/project-cli-dev</pre>
+
+                            <h5 class="mb-2 mt-4 text-md">Components</h5>
+
+                            <p>Since ProjectCLI is based on the <a
+                                    href="https://symfony.com/doc/current/console.html" target="_blank">Symfony
+                                Console</a>, commands are defined in classes, extending <code>\Chriha\ProjectCLI\Commands\Command</code>.
+                                Every command consists of 4 components: The name, description, configuration and the
+                                handling.</p>
+                            <p>This <code>$defaultName</code> variable specifies the argument of how the command
+                                will be called.</p>
+                            <pre class="code php">    /** @var string */
+protected static $defaultName = 'setup';</pre>
+                            <p>The <code>$description</code> gives a short, but exact description for the
+                                command.</p>
+                            <pre class="code php">    /** @var string */
+protected $description = 'Set up the project.';</pre>
+                            <h5 class="mb-2 mt-4 text-md">Configure the command</h5>
+                            <pre class="code php">public function configure() : void
+{
+    $this
+        // the full command description shown when running the command with
+        // via "project help COMMAND" option
+        ->setHelp('This command allows you to create a user...')
+        // specify command arguments via:
+        ->addArgument($name, $mode = null, $description = '', $default = null)
+        // specify command options via:
+        ->addOption($name, $shortcut = null, $mode = null, $description = '', $default = null)
+}</pre>
+                            <p>Consult the <a href="https://symfony.com/doc/current/console/input.html"
+                                              target="_blank" class="text-blue-500">Symfony
+                                documentation</a> for further instructions on how to use arguments and
+                                options.</p>
+
+                            <h5 class="mb-2 mt-4 text-md">Command handler</h5>
+                            <p>The handle method is where all the magic happens. If you, for example, would like to
+                                create a
+                                <code>setup</code> command for your project, let's do the following:</p>
+                            <pre class="code php">public function handle() : void
+{
+    // check if there's already an env file to use for Docker
+    if ( ! file_exists(Helpers::projectPath('.env'))) {
+        copy(Helpers::projectPath('.env.example'), Helpers::projectPath('.env'));
+    }
+
+    // same goes for application env variables
+    if ( ! file_exists(Helpers::projectPath('src/.env'))) {
+        copy(Helpers::projectPath('src/.env.example'), Helpers::projectPath('src/.env'));
+    }
+
+    // install all necessary composer packages
+    $this->call('composer', ['install']);
+    // generate application key
+    $this->call('artisan', ['key:generate']);
+    // run all database migrations
+    $this->call('artisan', ['migrate:fresh']);
+    // install all necessary Node packages
+    $this->call('npm', ['install']);
+    // compile static files
+    $this->call('npm', ['run', 'dev']);
+    // print a success message for the user
+    $this->info('Project successfully installed');
+}
+</pre>
+                            <p class="alert alert-info">For the <code>artisan</code> command, the <a
+                                    href="/plugins/projectcli/laravel"><strong>projectcli/laravel</strong></a>
+                                plugin is required.</p>
+                            <p class="alert alert-info">For all available helpers, see <a
+                                    href="https://github.com/chriha/project-cli/blob/master/src/Helpers.php"
+                                    target="_blank">Helpers.php</a>.</p>
+
+                            <hr class="my-10" id="plugins">
+
+                            <h2 class="mb-6 text-3xl">Plugins</h2>
+
+                            <p>Where commands are specific to and only available in each project, plugins are
+                                basically global commands.</p>
+
+                            <h3 class="text-xl mb-1 mt-8" id="find-plugins">Find Plugins</h3>
+
+                            <p>There are two ways to search for plugins. Via the console:</p>
+                            <pre class="code shell">project plugins:search YOUR_QUERY</pre>
+
+                            <h3 class="text-xl mb-1 mt-8" id="install-plugins">Install Plugins</h3>
+                            <p>Installing a plugin is as easy as:</p>
+                            <pre class="code shell">project plugins:install VENDOR/NAME</pre>
+                            <p>You will also find the command to install a plugin on every plugin page, e.g. <a
+                                    href="/plugins/projectcli/laravel">projectcli/laravel</a>.</p>
+
+                            <h3 class="text-xl mb-1 mt-8" id="update-plugins">Update Plugins</h3>
+                            <pre class="code shell">project plugins:update VENDOR/NAME</pre>
+
+                            <h3 class="text-xl mb-1 mt-8" id="uninstall-plugins">Uninstall Plugins</h3>
+                            <pre class="code shell">project plugins:uninstall VENDOR/NAME</pre>
+
+                            <h3 class="text-xl mb-1 mt-8" id="require-plugins">Require Plugins</h3>
+                            <p>If a certain plugin is required for the project, you can specify that in the
+                                project's configuration file <code>project.yml</code>:</p>
+                            <pre class="code yaml">name: vendor/project-name
+version: v1.0.4
+require:
+- projectcli/laravel</pre>
+                            <p>In this case, <strong>ProjectCLI</strong> will notify the user every time, a command
+                                is executed inside the project.</p>
+                            <pre class="code shell">****************************************************
+*                 Required plugins                 *
+****************************************************
+- projectcli/laravel</pre>
+                            <p>All missing, but required plugins can be installed easily via:</p>
+                            <pre class="code shell">project plugins:install</pre>
+
+                            <h3 class="text-xl mb-1 mt-8" id="writing-plugins">Writing Plugins</h3>
+                            <pre class="code shell">project plugins:uninstall VENDOR/NAME</pre>
+                            <p>Easily create the boilerplate via the following command:</p>
+                            <pre class="code shell">project make:plugin</pre>
+                            <p>During the process, you can specify your vendor as well as the plugin name.
+                                ProjectCLI will tell you the according path to the plugin, whenever the plugin was
+                                successfully created.</p>
+                            <p>The commands each plugin holds have the exact same structure as project specific
+                                commands. So head over to the <a href="#writing-commands" class="text-blue-500">writing commands</a>
+                                chapter,
+                                if you're curious on how to write commands.</p>
+                            <p>Additionally to normal commands, plugin commands have an extra method, which you can
+                                use to enable and disable the according command. Let's see an example from the <a
+                                        href="/plugins/projectcli/laravel" class="text-blue-500">projectcli/laravel</a> package:</p>
+                            <pre class="code php">public static function isActive() : bool
+{
+    // via the constant, check if the command should only be available
+    // inside a project and if the artisan file exists
+    return PROJECT_IS_INSIDE
+        && file_exists(Helpers::projectPath('src/artisan'));
+}
+</pre>
+
+                            <h5 class="mb-2 mt-4 text-md">Make Commands available</h5>
+                            <p>Plugin commands are not automatically loaded and available. Require the PHP file for
+                                each command in the <code>./plugin.php</code> and specify the Namespace in the
+                                plugins <code>./project.yml</code>:</p>
+                            <pre class="code yaml">name: projectcli/laravel
+description: Laravel specific commands
+version: v1.0.0
+commands:
+- \ProjectCLI\Laravel\Commands\ArtisanCommand</pre>
+
+                            <p class="alert alert-warning">Composer packages inside plugins are not supported.</p>
+
+                            <h3 class="text-xl mb-1 mt-8" id="publishing-plugins">Publishing Plugins</h3>
+                            <p>For easy installation in the future or for other users to be able to use your plugin
+                                via the <code>plugins:install</code> command, you have to create a public Github
+                                repository and create a tag for every new version. After that, you can
+                                <a href="https://github.com/ProjectCLI/registry" target="_blank"
+                                   class="text-blue-500">submit your plugin</a> as an issue to the registry.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('pre').forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    function TableOfContents() {
+        return {
+            top: 0,
+            height: 0,
+            initialized: false,
+            activeSlug: 'getting-set-up',
+            init() {
+                this.items = Array.from(this.$el.querySelectorAll('a[href^="#"]'))
+                this.sections = this.items.map(item => document.querySelector(item.getAttribute('href')))
+
+                let lastKnownScrollPosition = 0
+                let ticking = false
+
+                window.addEventListener('scroll', () => {
+                    lastKnownScrollPosition = window.pageYOffset
+
+                    if (! ticking) {
+                        window.requestAnimationFrame(() => {
+                            this.check(lastKnownScrollPosition)
+                            ticking = false
+                        })
+                        ticking = true
+                    }
+                }, {passive: true})
+
+                window.addEventListener('resize', () => this.check(window.pageYOffset))
+
+                this.check(window.pageYOffset)
+
+                this.$nextTick(() => {
+                    this.initialized = true
+                })
+            },
+            check(scrollPosition) {
+                let active = 0
+                let bodyOffset = document.body.getBoundingClientRect().top
+                let rootFontSize = parseFloat(window.getComputedStyle(document.documentElement).fontSize)
+
+                if (scrollPosition !== 0) {
+                    for (let i = 0; i < this.sections.length; i ++) {
+                        let offset = this.sections[i].tagName === 'H2' ? Math.floor(rootFontSize * 2) : Math.floor(rootFontSize * 1.75)
+                        if (scrollPosition >= this.sections[i].getBoundingClientRect().top - bodyOffset - offset - 1) {
+                            active = i
+                        } else {
+                            break
+                        }
+                    }
+                }
+
+                this.activeSlug = this.items[active].getAttribute('href').substr(1)
+
+                this.top = this.items[active].offsetTop
+                this.height = this.items[active].offsetHeight
+            }
+        }
+    }
+</script>
+</body>
+</html>
